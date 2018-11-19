@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace CarAuction2.Models.Car
@@ -22,5 +23,7 @@ namespace CarAuction2.Models.Car
         public CarPicture Picture { get; set; }
 
         [Required] public CarStatus CarStatus { get; set; } = CarStatus.OnSale;
+        
+        public List<CarPicture> CarPictures { get; set; } 
     }
 }
