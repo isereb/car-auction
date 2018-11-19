@@ -1,19 +1,22 @@
 @model CarAuction2.Models.Car.Car
 
 @{
-    ViewBag.Title = "title";
+    ViewBag.Title = "Add a car";
 }
 
 <h2>Add a car</h2>
-@using (Html.BeginForm("In", "Sign", FormMethod.Post))
+@using (Html.BeginForm("Add", "Car", FormMethod.Post))
 {
     if (ViewBag.FailureMessage != null)
     {
         @ValidationExtensions.ValidationSummary(Html, false, @ViewBag.FailureMessage, new {@class = "alert alert-danger"})
     }
+    <div class="alert alert-success" style="display: none;">
+        <i class="glyphicon glyphicon-ok"></i>
+    </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Mark)
-        @Html.TextBoxFor(m => m.Mark, new {@class="form-control"})
+        @Html.TextBoxFor(m => m.Mark, new {@class = "form-control"})
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Model)
@@ -23,7 +26,39 @@
         @Html.LabelFor(m => m.CarStatus)
         @Html.EnumDropDownListFor(m => m.CarStatus, new {@class = "form-control"})
     </div>
-    
-    <input class="btn btn-default" type="submit" value="Sign in"/>
-    <a href="/Sign/Up" class="btn btn-link">Sign up</a>
+    <button id="AddCarButton" class="btn btn-primary" type="button">Add a car</button>
+    <script>
+
+        $(function() {
+            $("#AddCarButton").click(function(e) {
+
+                var jsonObject = {
+                    "Mark": $("#Mark").val(),
+                    "Model": $("#Model").val(),
+                    "CarStatus": $("#CarStatus").val()
+                };
+
+                $.ajax({
+                    url: "@Url.Action("Add")",
+                    type: "POST",
+                    data: JSON.stringify(jsonObject),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    error: function(response) {
+                        var r = $.parseJSON(response);
+                        console.log(r);
+                    },
+                    success: function(response) {
+                        var r = $.parseJSON(response);
+                        if (r == true) {
+                            $("#SuccessMessage").show();
+                        } else {
+                            console.log("Failure");
+                        }
+                    }
+                });
+            });
+        });
+
+    </script>
 }
