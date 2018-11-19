@@ -18,6 +18,6 @@ namespace CarAuction2.Models.User
         [Display(Name = "Password")] 
         public string Password { get; set; }
 
-        private readonly DateTime _attemptedAt = new DateTime();
+        private readonly DateTime _attemptedAt = DateTime.Now;
     }
 }
