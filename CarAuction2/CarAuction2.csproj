@@ -124,6 +124,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CarController.cs" />
     <Compile Include="Controllers\SignController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PanelController.cs" />
@@ -131,6 +132,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Car\Car.cs" />
+    <Compile Include="Models\Car\CarPicture.cs" />
     <Compile Include="Models\Car\CarStatus.cs" />
     <Compile Include="Models\User\AuthAttempt.cs" />
     <Compile Include="Models\User\User.cs" />
@@ -162,6 +164,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Views\Car\Add.cshtml" />
     <Content Include="Views\Sign\In.cshtml" />
     <Content Include="Views\Panel\Index.cshtml" />
     <Content Include="Views\Sign\Up.cshtml" />

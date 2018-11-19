@@ -1,4 +1,5 @@
 using System.Data.Entity;
+using CarAuction2.Models.Car;
 using CarAuction2.Models.User;
 
 namespace CarAuction2.App_Data
@@ -11,6 +12,6 @@ namespace CarAuction2.App_Data
         }
         
         public DbSet<User> Users { get; set; }
-        
+        public DbSet<Car> Cars { get; set; }
     }
 }
