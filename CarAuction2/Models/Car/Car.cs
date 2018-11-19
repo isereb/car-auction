@@ -10,5 +10,6 @@ namespace CarAuction2.Models.Car
         public string Model { get; set; }
         public DateTime ProductionYear { get; set; }
         public string PathToPicture { get; set; }
+        public CarStatus CarStatus { get; set; }
     }
 }

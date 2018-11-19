@@ -131,6 +131,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Car\Car.cs" />
+    <Compile Include="Models\Car\CarStatus.cs" />
     <Compile Include="Models\User\AuthAttempt.cs" />
     <Compile Include="Models\User\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

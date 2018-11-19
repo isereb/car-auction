@@ -7,19 +7,18 @@ namespace CarAuction2.Controllers
     {
         public ActionResult Index()
         {
-            Console.Out.WriteLine(HttpContext.Session["User"]);
             return View();
         }
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "About us";
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Contact us";
             return View();
         }
     }
