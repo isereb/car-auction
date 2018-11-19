@@ -1,0 +1,24 @@
+@model CarAuction2.Models.User.AuthAttempt
+
+@{
+    ViewBag.Title = "Sign in";
+}
+<h2>@ViewBag.Title.</h2>
+@using (Html.BeginForm("Index", "SignIn", FormMethod.Post))
+{
+    if (ViewBag.FailureMessage != null)
+    {
+        @ValidationExtensions.ValidationSummary(Html, false, @ViewBag.FailureMessage, new {@class = "alert alert-danger"})
+    }
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email)
+        @Html.TextBoxFor(m => m.Email, new {@class="form-control"})
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Password)
+        @Html.TextBoxFor(m => m.Password, new {@class = "form-control"})
+    </div>
+    
+    <input class="btn btn-default" type="submit" value="Sign in"/>
+    <a href="/SignUp" class="btn btn-link">Sign up</a>
+}

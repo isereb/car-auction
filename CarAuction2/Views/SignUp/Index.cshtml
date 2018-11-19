@@ -1,0 +1,29 @@
+@model CarAuction2.Models.User.User
+@{
+    ViewBag.Title = "Sign up";
+}
+<h2>@ViewBag.Title.</h2>
+@using (Html.BeginForm("Index", "SignUp", FormMethod.Post))
+{
+    if (ViewBag.FailureMessage != null)
+    {
+        @Html.ValidationSummary(false, "Something went wrong...", new {@class = "alert alert-danger"}) 
+    }
+
+    if (ViewBag.SuccessMessage != null)
+    {
+        <div class="alert alert-success">
+            You successfully created your account. Please <a href="/SignIn">sign in</a>.
+        </div>
+    }
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email)
+        @Html.TextBoxFor(m => m.Email, new {@class="form-control"})
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Password)
+        @Html.TextBoxFor(m => m.Password, new {@class = "form-control"})
+    </div>
+    
+    <input class="btn btn-default" type="submit" value="Sign up"/>
+}
