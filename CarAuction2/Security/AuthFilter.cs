@@ -11,8 +11,8 @@ namespace CarAuction2.Security
             if (filterContext.HttpContext.Session["User"] == null)
             {
                 RouteValueDictionary redirectTargetDictionary = new RouteValueDictionary();
-                redirectTargetDictionary.Add("action", "Index");
-                redirectTargetDictionary.Add("controller", "SignIn");
+                redirectTargetDictionary.Add("action", "In");
+                redirectTargetDictionary.Add("controller", "Sign");
                 redirectTargetDictionary.Add("area", "");
                 filterContext.Result = new RedirectToRouteResult(redirectTargetDictionary);
             }

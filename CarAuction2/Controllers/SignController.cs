@@ -6,10 +6,10 @@ using CarAuction2.Models.User;
 
 namespace CarAuction2.Controllers
 {
-    public class SignInController : Controller
+    public class SignController : Controller
     {
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult In()
         {
             if (Session["user"] != null)
             {
@@ -21,7 +21,7 @@ namespace CarAuction2.Controllers
         }
 
         [HttpPost]
-        [ActionName("Index")]
+        [ActionName("In")]
         public ActionResult SignInHandler(AuthAttempt authAttempt)
         {
             if (ModelState.IsValid)
@@ -38,7 +38,6 @@ namespace CarAuction2.Controllers
                         if (existingUser != null)
                         {
                             HttpContext.Session["User"] = existingUser;
-                            Console.Out.WriteLine(HttpContext.Session["User"]);
                             Response.Redirect("/Panel");
                             return null;
                         }
@@ -51,6 +50,42 @@ namespace CarAuction2.Controllers
 
             ViewBag.FailureMessage = "Incorrect email or password";
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult Up()
+        {
+            ViewBag.Title = "Sign up";
+            User user = new User();
+            return View(user);
+        }
+
+        [HttpPost]
+        [ActionName("Up")]
+        public ActionResult SignUpHandler(User user)
+        {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.FailureMessage = "Something went wrong";
+                return View();
+            }
+
+            using (var ctx = new CarAuctionContext())
+            {
+                ctx.Users.Add(user);
+                ctx.SaveChanges();
+            }
+
+            ViewBag.SuccessMessage = "You successfully signed up";
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Out()
+        {
+            Session["User"] = null;
+            Response.Redirect("/Sign/In");
+            return null;
         }
     }
 }

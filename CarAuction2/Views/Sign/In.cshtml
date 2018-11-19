@@ -4,7 +4,7 @@
     ViewBag.Title = "Sign in";
 }
 <h2>@ViewBag.Title.</h2>
-@using (Html.BeginForm("Index", "SignIn", FormMethod.Post))
+@using (Html.BeginForm("In", "Sign", FormMethod.Post))
 {
     if (ViewBag.FailureMessage != null)
     {
@@ -20,5 +20,5 @@
     </div>
     
     <input class="btn btn-default" type="submit" value="Sign in"/>
-    <a href="/SignUp" class="btn btn-link">Sign up</a>
+    <a href="/Sign/Up" class="btn btn-link">Sign up</a>
 }
