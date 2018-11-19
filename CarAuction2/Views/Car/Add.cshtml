@@ -1,0 +1,29 @@
+@model CarAuction2.Models.Car.Car
+
+@{
+    ViewBag.Title = "title";
+}
+
+<h2>Add a car</h2>
+@using (Html.BeginForm("In", "Sign", FormMethod.Post))
+{
+    if (ViewBag.FailureMessage != null)
+    {
+        @ValidationExtensions.ValidationSummary(Html, false, @ViewBag.FailureMessage, new {@class = "alert alert-danger"})
+    }
+    <div class="form-group">
+        @Html.LabelFor(m => m.Mark)
+        @Html.TextBoxFor(m => m.Mark, new {@class="form-control"})
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Model)
+        @Html.TextBoxFor(m => m.Model, new {@class = "form-control"})
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.CarStatus)
+        @Html.EnumDropDownListFor(m => m.CarStatus, new {@class = "form-control"})
+    </div>
+    
+    <input class="btn btn-default" type="submit" value="Sign in"/>
+    <a href="/Sign/Up" class="btn btn-link">Sign up</a>
+}
