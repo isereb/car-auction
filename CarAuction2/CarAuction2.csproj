@@ -140,30 +140,43 @@
     <Compile Include="Security\AuthFilter.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+      <Content Include="Content\scripts\bootstrap.bundle.js"/>
+      <Content Include="Content\scripts\bootstrap.bundle.min.js"/>
+      <Content Include="Content\scripts\bootstrap.js"/>
+      <Content Include="Content\scripts\bootstrap.min.js"/>
+      <Content Include="Content\scripts\esm\popper-utils.js"/>
+      <Content Include="Content\scripts\esm\popper-utils.min.js"/>
+      <Content Include="Content\scripts\esm\popper.js"/>
+      <Content Include="Content\scripts\esm\popper.min.js"/>
+      <Content Include="Content\scripts\index.d.ts"/>
+      <Content Include="Content\scripts\jquery-3.0.0-vsdoc.js"/>
+      <Content Include="Content\scripts\jquery-3.0.0.js"/>
+      <Content Include="Content\scripts\jquery-3.0.0.min.js"/>
+      <Content Include="Content\scripts\jquery-3.0.0.slim.js"/>
+      <Content Include="Content\scripts\jquery-3.0.0.slim.min.js"/>
+      <Content Include="Content\scripts\popper-utils.js"/>
+      <Content Include="Content\scripts\popper-utils.min.js"/>
+      <Content Include="Content\scripts\popper.js"/>
+      <Content Include="Content\scripts\popper.min.js"/>
+      <Content Include="Content\scripts\README.md"/>
+      <Content Include="Content\scripts\umd\popper-utils.js"/>
+      <Content Include="Content\scripts\umd\popper-utils.min.js"/>
+      <Content Include="Content\scripts\umd\popper.js"/>
+      <Content Include="Content\scripts\umd\popper.min.js"/>
+      <Content Include="Content\styles\bootstrap-grid.css"/>
+      <Content Include="Content\styles\bootstrap-grid.min.css"/>
+      <Content Include="Content\styles\bootstrap-reboot.css"/>
+      <Content Include="Content\styles\bootstrap-reboot.min.css"/>
+      <Content Include="Content\styles\bootstrap.css"/>
+      <Content Include="Content\styles\bootstrap.min.css"/>
+      <Content Include="Content\styles\Site.css"/>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <None Include="App.config" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\respond.js" />
-    <Content Include="Scripts\respond.min.js" />
     <Content Include="Views\Car\Add.cshtml" />
     <Content Include="Views\Sign\In.cshtml" />
     <Content Include="Views\Panel\Index.cshtml" />
@@ -182,12 +195,36 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+      <None Include="Content\scripts\bootstrap.bundle.js.map"/>
+      <None Include="Content\scripts\bootstrap.bundle.min.js.map"/>
+      <None Include="Content\scripts\bootstrap.js.map"/>
+      <None Include="Content\scripts\bootstrap.min.js.map"/>
+      <None Include="Content\scripts\esm\popper-utils.js.map"/>
+      <None Include="Content\scripts\esm\popper-utils.min.js.map"/>
+      <None Include="Content\scripts\esm\popper.js.map"/>
+      <None Include="Content\scripts\esm\popper.min.js.map"/>
+      <None Include="Content\scripts\jquery-3.0.0.min.map"/>
+      <None Include="Content\scripts\jquery-3.0.0.slim.min.map"/>
+      <None Include="Content\scripts\popper-utils.js.map"/>
+      <None Include="Content\scripts\popper-utils.min.js.map"/>
+      <None Include="Content\scripts\popper.js.map"/>
+      <None Include="Content\scripts\popper.min.js.map"/>
+      <None Include="Content\scripts\umd\popper-utils.js.map"/>
+      <None Include="Content\scripts\umd\popper-utils.min.js.map"/>
+      <None Include="Content\scripts\umd\popper.js.map"/>
+      <None Include="Content\scripts\umd\popper.min.js.map"/>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+      <None Include="Content\styles\bootstrap-grid.css.map"/>
+      <None Include="Content\styles\bootstrap-grid.min.css.map"/>
+      <None Include="Content\styles\bootstrap-reboot.css.map"/>
+      <None Include="Content\styles\bootstrap-reboot.min.css.map"/>
+      <None Include="Content\styles\bootstrap.css.map"/>
+      <None Include="Content\styles\bootstrap.min.css.map"/>
     <None Include="packages.config" />
   </ItemGroup>
   <PropertyGroup>
