@@ -37,5 +37,49 @@ namespace CarAuction2.Controllers
                 return Json(false);
             }
         }
+
+        [HttpGet]
+        public ActionResult AddMark()
+        {
+            return View();
+        }
+        
+        [HttpPost]
+        public JsonResult AddMark(Mark mark)
+        {
+            try
+            {
+                Ctx.Marks.Add(mark);
+                Ctx.SaveChanges();
+                return Json(true);
+            }
+            catch (Exception e)
+            {
+                return Json(false);
+            }
+        }
+        
+        [HttpGet]
+        public ActionResult AddModel()
+        {
+            ViewBag.Marks = Ctx.Marks.ToList();
+            return View();
+        }
+        
+        [HttpPost]
+        public JsonResult AddModel(Model model)
+        {
+            try
+            {
+                Ctx.Models.Add(model);
+                Ctx.SaveChanges();
+                return Json(true);
+            }
+            catch (Exception e)
+            {
+                return Json(false);
+            }
+        }
     }
+    
 }
