@@ -13,5 +13,7 @@ namespace CarAuction2.App_Data
         
         public DbSet<User> Users { get; set; }
         public DbSet<Car> Cars { get; set; }
+        public DbSet<Mark> Marks { get; set; }
+        public DbSet<Model> Models { get; set; }
     }
 }

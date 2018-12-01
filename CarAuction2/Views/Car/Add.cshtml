@@ -16,11 +16,22 @@
         Your car has been successfully published
         <hr />
         When someone make an offer we will send you a notification
-        @* todo notification *@
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Mark)
-        @Html.TextBoxFor(m => m.Mark, new {@class = "form-control"})
+        @Html.Label("Continent")
+        @Html.DropDownList(
+            "Continent",
+            new SelectList(ViewBag.Marks, "MarkId", "Name"),
+            "Select a mark",
+            new {id = "MarkId", @class = "form-control"})
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Model)
+        @Html.DropDownListFor(
+            m => m.ModelId,
+            new SelectList(ViewBag.Models, "ModelId", "Name"),
+            "Select a model",
+            new {id = "ModelId", @class = "form-control"})
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Model)
