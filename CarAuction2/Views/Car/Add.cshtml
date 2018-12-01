@@ -12,7 +12,11 @@
         @ValidationExtensions.ValidationSummary(Html, false, @ViewBag.FailureMessage, new {@class = "alert alert-danger"})
     }
     <div class="alert alert-success" style="display: none;">
-        <i class="glyphicon glyphicon-ok"></i>
+        <div class="alert-heading">Well done!</div>
+        Your car has been successfully published
+        <hr />
+        When someone make an offer we will send you a notification
+        @* todo notification *@
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Mark)
