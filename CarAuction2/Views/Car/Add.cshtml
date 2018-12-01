@@ -5,7 +5,7 @@
 }
 
 <h2>Add a car</h2>
-@using (Html.BeginForm("Add", "Car", FormMethod.Post))
+@using (Html.BeginForm("AddMark", "Car", FormMethod.Post))
 {
     if (ViewBag.FailureMessage != null)
     {
@@ -18,7 +18,7 @@
         When someone make an offer we will send you a notification
     </div>
     <div class="form-group">
-        @Html.Label("Continent")
+        @Html.Label("Mark")
         @Html.DropDownList(
             "Continent",
             new SelectList(ViewBag.Marks, "MarkId", "Name"),
@@ -54,7 +54,7 @@
                 };
 
                 $.ajax({
-                    url: "@Url.Action("Add")",
+                    url: "@Url.Action("AddMark")",
                     type: "POST",
                     data: JSON.stringify(jsonObject),
                     contentType: "application/json; charset=utf-8",
