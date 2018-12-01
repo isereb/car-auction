@@ -6,7 +6,7 @@ namespace CarAuction2.App_Data
 {
     public class CarAuctionContext : DbContext
     {
-        public CarAuctionContext() : base("name=CarAuction")
+        public CarAuctionContext() : base("name=Database1")
         {
             
         }
