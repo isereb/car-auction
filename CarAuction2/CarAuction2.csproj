@@ -191,7 +191,6 @@
     <Content Include="Global.asax" />
     <None Include="App.config" />
     <Content Include="Views\Car\Add.cshtml" />
-      <Content Include="Views\Car\WebForm1.aspx"/>
       <Content Include="Views\Home\Index.aspx"/>
     <Content Include="Views\Sign\In.cshtml" />
     <Content Include="Views\Panel\Index.cshtml" />
