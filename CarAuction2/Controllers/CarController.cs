@@ -8,35 +8,33 @@ namespace CarAuction2.Controllers
 {
     public class CarController : Controller
     {
+        private static readonly CarAuctionContext Ctx = new CarAuctionContext();
+
         public JsonResult GetAll()
         {
-            using (var ctx = new CarAuctionContext())
-            {
-                return Json(ctx.Cars.Select(x => x).ToList());
-            }
+            return Json(Ctx.Cars.Select(x => x).ToList());
         }
 
         [HttpGet]
-
         public ActionResult Add()
         {
+            ViewBag.Marks = Ctx.Marks.ToList();
+            ViewBag.Models = Ctx.Models.ToList();
             return View();
         }
-        
+
         [HttpPost]
         public JsonResult Add(Car car)
         {
-            using (var ctx = new CarAuctionContext())
+            try
             {
-                try
-                {
-                    ctx.Cars.Add(car);
-                    ctx.SaveChanges();  
-                    return Json(true);
-                } catch(Exception e)
-                {
-                    return Json(false);
-                }
+                Ctx.Cars.Add(car);
+                Ctx.SaveChanges();
+                return Json(true);
+            }
+            catch (Exception e)
+            {
+                return Json(false);
             }
         }
     }
