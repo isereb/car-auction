@@ -4,14 +4,14 @@
     ViewBag.Title = "Add a mark";
 }
 
-<h2>Add a car</h2>
+<h2>@ViewBag.Title</h2>
 @using (Html.BeginForm("AddMark", "Car", FormMethod.Post))
 {
     if (ViewBag.FailureMessage != null)
     {
         @ValidationExtensions.ValidationSummary(Html, false, @ViewBag.FailureMessage, new {@class = "alert alert-danger"})
     }
-    <div id="#SuccessMessage" class="alert alert-success" display:none;>
+    <div id="SuccessMessage" class="alert alert-success" style="display:none;">
         <h4 class="alert-heading">Well done!</h4>
         Your successfully added the car mark
         <hr />
@@ -21,16 +21,15 @@
         @Html.LabelFor(m => m.Name)
         @Html.TextBoxFor(m => m.Name, new {@class = "form-control"})
     </div>
-    <button id="AddCarButton" class="btn btn-primary" type="button">Add a car</button>
+    <button id="AddMarkButton" class="btn btn-primary" type="button">Add a mark</button>
     <script>
 
         $(function() {
-            $("#AddCarButton").click(function(e) {
+            $("#AddMarkButton").click(function(e) {
 
                 var jsonObject = {
                     "Name": $("#Name").val(),
                 };
-
                 $.ajax({
                     url: "@Url.Action("AddMark")",
                     type: "POST",
@@ -38,6 +37,7 @@
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",
                     error: function(response) {
+                        console.log("target error");
                         var r = $.parseJSON(response);
                         console.log(r);
                     },
