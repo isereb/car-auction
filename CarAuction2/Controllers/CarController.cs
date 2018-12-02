@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web.Mvc;
 using CarAuction2.App_Data;
 using CarAuction2.Models.Car;
+using CarAuction2.Models.User;
 using CarAuction2.Security;
 
 namespace CarAuction2.Controllers
@@ -31,6 +32,7 @@ namespace CarAuction2.Controllers
         {
             try
             {
+                car.SellerId = ((User) HttpContext.Session["User"]).UserId;
                 Ctx.Cars.Add(car);
                 Ctx.SaveChanges();
                 return Json(true);
