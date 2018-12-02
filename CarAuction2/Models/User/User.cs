@@ -1,7 +1,5 @@
 using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Web.UI.WebControls;
 
 namespace CarAuction2.Models.User
 {
@@ -14,8 +12,20 @@ namespace CarAuction2.Models.User
         public string Email { get; set; }
 
         [Required]
-        [MinLength(6, ErrorMessage = "Password should be at least 6 characters long")]
-        [MaxLength(64, ErrorMessage = "Password should be no more than 64 characters long")]
+        [Display(Name = "First name")]
+        [MinLength(6, ErrorMessage = "{0} should be at least {1} characters long")]
+        [MaxLength(64, ErrorMessage = "{0} should be no more than {1} characters long")]
+        public string FirstName;
+        
+        [Required]
+        [Display(Name = "Last name")]
+        [MinLength(6, ErrorMessage = "{0} should be at least {1} characters long")]
+        [MaxLength(64, ErrorMessage = "{0} should be no more than {1} characters long")]
+        public string LastName;
+
+        [Required]
+        [MinLength(6, ErrorMessage = "{0} should be at least {1} characters long")]
+        [MaxLength(64, ErrorMessage = "{0} should be no more than {1} characters long")]
         public string Password { get; set; }
         private DateTime CreatedAt { get; set; }
 
