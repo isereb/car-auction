@@ -1,11 +1,14 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using CarAuction2.App_Data;
 using CarAuction2.Models.Car;
+using CarAuction2.Security;
 
 namespace CarAuction2.Controllers
 {
+    [AuthFilter]
     public class CarController : Controller
     {
         private static readonly CarAuctionContext Ctx = new CarAuctionContext();
@@ -80,6 +83,27 @@ namespace CarAuction2.Controllers
                 return Json(false);
             }
         }
-    }
-    
+
+        [HttpGet]
+        public JsonResult GetModels(int id = 0)
+        {
+            if (id == 0)
+                return Json(Ctx.Marks.ToList().Select(c => new SelectListItem
+                    {
+                        Text = c.Name,
+                        Value = c.MarkId.ToString()
+                    }
+                ), JsonRequestBehavior.AllowGet);
+            IEnumerable<Model> models =
+                from c in Ctx.Models
+                where c.MarkId == id
+                select c;
+            return Json(models.Select(c => new SelectListItem()
+                {
+                    Text = c.Name,
+                    Value = c.MarkId.ToString()
+                }
+            ), JsonRequestBehavior.AllowGet);
+        }
+    } 
 }
