@@ -161,6 +161,7 @@
       <Content Include="Content\scripts\bootstrap.bundle.min.js"/>
       <Content Include="Content\scripts\bootstrap.js"/>
       <Content Include="Content\scripts\bootstrap.min.js"/>
+      <Content Include="Content\scripts\custom\afterload.js"/>
       <Content Include="Content\scripts\esm\popper-utils.js"/>
       <Content Include="Content\scripts\esm\popper-utils.min.js"/>
       <Content Include="Content\scripts\esm\popper.js"/>
@@ -231,7 +232,6 @@
       <None Include="Content\scripts\umd\popper.js.map"/>
       <None Include="Content\scripts\umd\popper.min.js.map"/>
   </ItemGroup>
-    <ItemGroup/>
   <ItemGroup>
       <None Include="Content\styles\bootstrap-grid.css.map"/>
       <None Include="Content\styles\bootstrap-grid.min.css.map"/>
