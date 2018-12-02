@@ -1,6 +1,5 @@
 using System.Web.Mvc;
 using System.Web.Routing;
-using CarAuction2.App_Data;
 
 namespace CarAuction2.Security
 {

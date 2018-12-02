@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -15,6 +14,12 @@ namespace CarAuction2.Models.Car
 
         [Required(ErrorMessage = "Model of the car should be selected")]
         public int ModelId { get; set; }
+        
+        [ForeignKey("SellerId")]
+        public virtual User.User Seller { get; set; }
+        
+        [Required]
+        public int SellerId { get; set; }
         
         [Required]
         public int ProductionYear { get; set; }
