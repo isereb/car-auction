@@ -16,6 +16,9 @@ namespace CarAuction2
                 "~/Content/scripts/jquery-{version}.js",
                 "~/Content/scripts/bootstrap.js"
             ));
+            
+            bundles.Add(new ScriptBundle("~/bundles/afterload.js").Include(
+                "~/Content/scripts/custom/afterload.js"));
         }
     }
 }
