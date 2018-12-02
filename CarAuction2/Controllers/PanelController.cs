@@ -12,7 +12,7 @@ namespace CarAuction2.Controllers
         // TODO Do statistics page at /Panel
         public ActionResult Index()
         {
-            ViewBag.Username = ((User) Session["User"]).Email;
+            ViewBag.FirstName = ((User) Session["User"]).FirstName;
             return View();
         }
     }
