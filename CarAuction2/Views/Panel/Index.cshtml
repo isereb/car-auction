@@ -2,15 +2,17 @@
     ViewBag.Title = "Hi, ";
     
 }
-<h2>@ViewBag.Title @ViewBag.Username.</h2>
-<h3>@ViewBag.Message</h3>
 <div class="row">
     <div class="col-md-3">
-        <ul class="nav nav-pills nav-stacked">
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Cars</a></li>
-        </ul>
+        <nav class="nav nav-pills flex-column">
+            <a class="nav-link active" href="#">Panel</a>
+            <a class="nav-link" href="#">My cars</a>
+            <a class="nav-link" href="#">My profile</a>
+        </nav>
     </div>
-    <div class="col-md-9"></div>
+    <div class="col-md-9">
+        <h2>@ViewBag.Title @ViewBag.Username.</h2>
+        Panel page is the page where the visitor is redirected right after he logs in
+    </div>
     
 </div>
