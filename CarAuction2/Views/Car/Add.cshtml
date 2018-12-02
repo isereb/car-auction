@@ -5,14 +5,14 @@
 }
 
 <h2>Add a car</h2>
-@using (Html.BeginForm("AddMark", "Car", FormMethod.Post))
+@using (Html.BeginForm("Add", "Car", FormMethod.Post))
 {
     if (ViewBag.FailureMessage != null)
     {
         @ValidationExtensions.ValidationSummary(Html, false, @ViewBag.FailureMessage, new {@class = "alert alert-danger"})
     }
-    <div class="alert alert-success" style="display: none;">
-        <div class="alert-heading">Well done!</div>
+    <div id="SuccessMessage" class="alert alert-success" style="display: none;">
+        <h4 class="alert-heading">Well done!</h4>
         Your car has been successfully published
         <hr />
         When someone make an offer we will send you a notification
@@ -20,12 +20,12 @@
     <div class="form-group">
         @Html.Label("Mark")
         @Html.DropDownList(
-            "Continent",
+            "Mark",
             new SelectList(ViewBag.Marks, "MarkId", "Name"),
             "Select a mark",
             new {id = "MarkId", @class = "form-control"})
     </div>
-    <div class="form-group">
+    <div class="form-group" style="display: none;">
         @Html.LabelFor(m => m.Model)
         @Html.DropDownListFor(
             m => m.ModelId,
@@ -34,8 +34,8 @@
             new {id = "ModelId", @class = "form-control"})
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Model)
-        @Html.TextBoxFor(m => m.Model, new {@class = "form-control"})
+        @Html.LabelFor(m => m.ProductionYear)
+        @Html.TextBoxFor(m => m.ProductionYear, new {@class = "form-control", type="number"})
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.CarStatus)
@@ -48,13 +48,13 @@
             $("#AddCarButton").click(function(e) {
 
                 var jsonObject = {
-                    "Mark": $("#Mark").val(),
-                    "Model": $("#Model").val(),
+                    "ModelId": $("#ModelId").val(),
+                    "ProductionYear": $("#ProductionYear").val(),
                     "CarStatus": $("#CarStatus").val()
                 };
 
                 $.ajax({
-                    url: "@Url.Action("AddMark")",
+                    url: "@Url.Action("Add")",
                     type: "POST",
                     data: JSON.stringify(jsonObject),
                     contentType: "application/json; charset=utf-8",
@@ -76,4 +76,5 @@
         });
 
     </script>
+    @Scripts.Render("~/bundles/afterload.js")
 }
