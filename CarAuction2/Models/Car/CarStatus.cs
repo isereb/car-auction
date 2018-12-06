@@ -5,5 +5,6 @@ namespace CarAuction2.Models.Car
         Auction,
         Sale,
         Sold,
+        Ineffective
     }
 }
