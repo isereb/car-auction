@@ -1,0 +1,41 @@
+@using CarAuction2.Models.Car
+@model CarAuction2.Models.Car.Car
+
+@{
+    ViewBag.Title = "My Cars";
+    Layout = "~/Views/Shared/_PanelLayout.cshtml";
+}
+<div class="row">
+    <div class="col-md-9">
+        <h2>My Cars</h2>
+    </div>
+    <div class="col-md-3 text-md-right">
+        <a class="btn btn-info" href="/Car/Publish">Publish new car</a>
+    </div>
+</div>
+@foreach (Car car in ViewBag.MyCars)
+{
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>
+                        @Html.DisplayFor(m => car.Model.Mark.Name) @Html.DisplayFor(m => car.Model.Name)
+                    </h5>
+                    <h6 class="card-subtitle mb-2 text-muted">
+                        @Html.DisplayFor(m => car.ProductionYear)
+                    </h6>
+                </div>
+                <div class="col-md-6 text-md-right">
+                    <h4>@Html.DisplayFor(m => car.DesiredPrice)</h4>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+        </div>
+    </div>
+}

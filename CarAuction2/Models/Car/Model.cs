@@ -9,7 +9,7 @@ namespace CarAuction2.Models.Car
         public int ModelId { get; set; }
 
         [ForeignKey("MarkId")]
-        public virtual Model Mark { get; set; }
+        public virtual Mark Mark { get; set; }
 
         [Required(ErrorMessage = "Mark of the model should be selected")]
         public int MarkId { get; set; }

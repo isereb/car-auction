@@ -2,10 +2,17 @@
 
 @{
     ViewBag.Title = "Add a car";
+    Layout = "~/Views/Shared/_PanelLayout.cshtml";
 }
-
-<h2>Add a car</h2>
-@using (Html.BeginForm("Add", "Car", FormMethod.Post))
+<div class="row">
+    <div class="col-md-9">
+        <h2>@ViewBag.Title</h2>
+    </div>
+    <div class="col-md-3 text-md-right">
+        <a class="btn" href="/Car/MyCars">Back</a>
+    </div>
+</div>
+@using (Html.BeginForm("Publish", "Car", FormMethod.Post))
 {
     if (ViewBag.FailureMessage != null)
     {
@@ -15,7 +22,7 @@
         <h4 class="alert-heading">Well done!</h4>
         Your car has been successfully published
         <hr />
-        When someone make an offer we will send you a notification
+        When someone makes an offer we will send you a notification
     </div>
     <div class="form-group">
         @Html.Label("Mark")
@@ -38,6 +45,26 @@
         @Html.TextBoxFor(m => m.ProductionYear, new {@class = "form-control", type="number"})
     </div>
     <div class="form-group">
+        @Html.LabelFor(m => m.Mileage)
+        @Html.TextBoxFor(m => m.Mileage, new {@class = "form-control", type="number"})
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.DesiredPrice)
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">$</span>
+            </div>
+            @Html.TextBoxFor(m => m.DesiredPrice, new {@class = "form-control", type = "number"})
+            <div class="input-group-append">
+                <span class="input-group-text">.00</span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Description)
+        @Html.TextAreaFor(m => m.Description, new {@class = "form-control"})
+    </div>
+    <div class="form-group">
         @Html.LabelFor(m => m.CarStatus)
         @Html.EnumDropDownListFor(m => m.CarStatus, new {@class = "form-control"})
     </div>
@@ -45,16 +72,18 @@
     <script>
 
         $(function() {
-            $("#AddCarButton").click(function(e) {
-
+            $("#AddCarButton").click(function(e) { 
                 var jsonObject = {
                     "ModelId": $("#ModelId").val(),
                     "ProductionYear": $("#ProductionYear").val(),
+                    "Mileage": $("#Mileage").val(),
+                    "DesiredPrice": $("#DesiredPrice").val(),
+                    "Description": $("#Description").val(),
                     "CarStatus": $("#CarStatus").val()
                 };
 
                 $.ajax({
-                    url: "@Url.Action("Add")",
+                    url: "@Url.Action("Publish")",
                     type: "POST",
                     data: JSON.stringify(jsonObject),
                     contentType: "application/json; charset=utf-8",
@@ -68,6 +97,7 @@
                         if (r == true) {
                             $("#SuccessMessage").show();
                         } else {
+                            // Todo validation
                             console.log("Failure");
                         }
                     }

@@ -1,0 +1,20 @@
+@using CarAuction2.Models.User
+@{
+    Layout = Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-md-3">
+        <nav class="nav nav-pills flex-column">
+            <a class="nav-link" href="/Panel/Index">Panel</a>
+            <a class="nav-link" href="/Car/MyCars">My cars</a>
+            <a class="nav-link" href="/Panel/MyProfile">My profile</a>
+            @if (((User) Session["User"]).IsInRole(2))
+            {
+                <a class="nav-link" href="/Panel/AllMarks">Manage marks and models</a>
+            }
+        </nav>
+    </div>
+    <div class="col-md-9">
+        @RenderBody()
+    </div>
+</div>

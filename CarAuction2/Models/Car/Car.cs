@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -21,14 +22,25 @@ namespace CarAuction2.Models.Car
         [Required]
         public int SellerId { get; set; }
         
+        [Display(Name = "Production Year")]
         [Required]
         public int ProductionYear { get; set; }
+        
+        [Required]
+        [DisplayFormat(DataFormatString = "{0:N0}", ApplyFormatInEditMode = true)]
+        public int Mileage { get; set; }
 
-        public CarPicture Picture { get; set; }
+        [Required]
+        public String Description { get; set; }
+
+        [Required]
+        [Display(Name = "Desired Price")]
+        [DisplayFormat(DataFormatString = "{0:C0}", ApplyFormatInEditMode = true)]
+        public int DesiredPrice { get; set; }
 
         [Required] 
         public CarStatus CarStatus { get; set; } = CarStatus.Sale;
-        
-        public List<CarPicture> CarPictures { get; set; } 
+
+        public List<CarPicture> CarPictures { get; set; }
     }
 }

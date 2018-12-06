@@ -1,18 +1,6 @@
 @{
-    ViewBag.Title = "Hi, ";
-    
+    ViewBag.Title = "Panel";
+    Layout = "~/Views/Shared/_PanelLayout.cshtml";
 }
-<div class="row">
-    <div class="col-md-3">
-        <nav class="nav nav-pills flex-column">
-            <a class="nav-link active" href="#">Panel</a>
-            <a class="nav-link" href="#">My cars</a>
-            <a class="nav-link" href="#">My profile</a>
-        </nav>
-    </div>
-    <div class="col-md-9">
-        <h2>@ViewBag.Title @ViewBag.FirstName.</h2>
-        Panel page is the page where the visitor is redirected right after he logs in
-    </div>
-    
-</div>
+<h2>Hi, @ViewBag.FirstName.</h2>
+Panel page is the page where the visitor is redirected right after he logs in

@@ -1,0 +1,52 @@
+@using CarAuction2.Models.Car
+@model CarAuction2.Models.Car.Mark
+
+@{
+    ViewBag.Title = "All marks";
+    Layout = "~/Views/Shared/_PanelLayout.cshtml";
+}
+<div class="row">
+    <div class="col-md-9">
+        <h2>All Marks</h2>
+    </div>
+    <div class="col-md-3 text-md-right">
+        <a class="btn btn-info" href='/Panel/AddMark'>Add a mark</a>
+    </div>
+</div>
+
+@foreach (Mark mark in ViewBag.AllMarks)
+{
+    <div class="row mt-2">
+        <div class="col-md-8">
+            @Html.DisplayFor(model => mark.Name)
+        </div>
+        <div class="col-md-2 text-md-right">
+            <a href="/Panel/ModelsByMark/@Html.DisplayFor(model => mark.MarkId)" class="btn btn-outline-dark" type="button">
+                View models
+            </a>
+        </div>
+        <div class="col-md-2 text-md-right">
+            <button data-id="@Html.DisplayFor(model => mark.MarkId)" class="btn btn-danger" type="button">
+                Delete
+            </button>
+        </div>
+    </div>
+}
+<script>
+    $(function() {
+        $("button.btn-danger").on("click",
+            function() {
+                let aBtn = $(this);
+                $.ajax({
+                    url: '/Panel/DeleteMark/',
+                    contentType: 'application/json; charset=utf-8',
+                    data: { MarkId: aBtn.attr("data-id") },
+                    type: 'GET',
+                    success: function(result) {
+                        aBtn.parent().parent().fadeOut();
+                    }
+                });
+                var id = $(this).attr("data-id");
+            });
+    });
+</script>

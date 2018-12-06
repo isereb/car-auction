@@ -2,10 +2,11 @@
 
 @{
     ViewBag.Title = "Add a mark";
+    Layout = "~/Views/Shared/_PanelLayout.cshtml";
 }
 
 <h2>@ViewBag.Title</h2>
-@using (Html.BeginForm("AddMark", "Car", FormMethod.Post))
+@using (Html.BeginForm("AddMark", "Panel", FormMethod.Post))
 {
     if (ViewBag.FailureMessage != null)
     {
@@ -15,7 +16,7 @@
         <h4 class="alert-heading">Well done!</h4>
         Your successfully added the car mark
         <hr />
-        You can @Html.ActionLink("add models", "AddModel", "Car") to your car
+        You can @Html.ActionLink("add models", "AddModel", "Panel") to your car
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Name)
@@ -46,6 +47,7 @@
                         if (r == true) {
                             $("#SuccessMessage").show();
                         } else {
+                            // Todo validation
                             console.log("Failure");
                         }
                     }

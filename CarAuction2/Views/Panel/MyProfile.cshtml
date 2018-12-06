@@ -1,0 +1,42 @@
+@model CarAuction2.Models.User.User
+
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_PanelLayout.cshtml";
+}
+<div class="row">
+    <div class="col-md-9">
+        <h2>Profile</h2>
+    </div>
+    <div class="col-md-3 text-md-right">
+        @ViewBag.User.FirstName @ViewBag.User.LastName
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="col-md-2">
+        @Html.DisplayNameFor(model => model.Email)
+    </div>
+    <div class="col-md-7">
+        @ViewBag.User.Email
+    </div>
+    <div class="col-md-3 text-md-right">
+        <button data-id="@Html.DisplayFor(model => model.UserId)" class="btn btn-danger" type="button">
+            Update
+        </button>
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="col-md-2">
+        @Html.LabelFor(m => m.Password)
+    </div>
+    <div class="col-md-7">
+        <div class="form-group">
+            @Html.TextBoxFor(m => m.Password, new {@class = "form-control", placeholder = "New password"})
+        </div>
+    </div>
+    <div class="col-md-3 text-md-right">
+        <button data-id="@Html.DisplayFor(model => model.UserId)" class="btn btn-danger" type="button">
+            Update
+        </button>
+    </div>
+</div>

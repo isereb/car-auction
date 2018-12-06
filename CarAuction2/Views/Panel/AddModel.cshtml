@@ -2,10 +2,11 @@
 
 @{
     ViewBag.Title = "Add a mark";
+    Layout = "~/Views/Shared/_PanelLayout.cshtml";
 }
 
 <h2>Add a car</h2>
-@using (Html.BeginForm("AddMark", "Car", FormMethod.Post))
+@using (Html.BeginForm("AddMark", "Panel", FormMethod.Post))
 {
     if (ViewBag.FailureMessage != null)
     {
@@ -54,6 +55,7 @@
                         if (r == true) {
                             $("#SuccessMessage").show();
                         } else {
+                            // Todo validation
                             console.log("Failure");
                         }
                     }
