@@ -8,12 +8,13 @@ namespace CarAuction2.App_Data
     {
         public CarAuctionContext() : base("name=Database1")
         {
-            
+            Database.SetInitializer(new CarAuctionDbInitializer());
         }
         
         public DbSet<User> Users { get; set; }
         public DbSet<Car> Cars { get; set; }
         public DbSet<Mark> Marks { get; set; }
         public DbSet<Model> Models { get; set; }
+        public DbSet<UserRole> UserRoles { get; set; }
     }
 }
