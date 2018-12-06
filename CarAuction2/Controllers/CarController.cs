@@ -20,7 +20,14 @@ namespace CarAuction2.Controllers
         }
 
         [HttpGet]
-        public ActionResult Add()
+        public ActionResult MyCars()
+        {
+            ViewBag.MyCars = Ctx.Cars.ToList().Where(c => c.SellerId == ((User) Session["User"]).UserId);
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Publish()
         {
             ViewBag.Marks = Ctx.Marks.ToList();
             ViewBag.Models = Ctx.Models.ToList();
@@ -28,55 +35,12 @@ namespace CarAuction2.Controllers
         }
 
         [HttpPost]
-        public JsonResult Add(Car car)
+        public JsonResult Publish(Car car)
         {
             try
             {
                 car.SellerId = ((User) HttpContext.Session["User"]).UserId;
                 Ctx.Cars.Add(car);
-                Ctx.SaveChanges();
-                return Json(true);
-            }
-            catch (Exception e)
-            {
-                return Json(false);
-            }
-        }
-
-        [HttpGet]
-        public ActionResult AddMark()
-        {
-            return View();
-        }
-        
-        [HttpPost]
-        public JsonResult AddMark(Mark mark)
-        {
-            try
-            {
-                Ctx.Marks.Add(mark);
-                Ctx.SaveChanges();
-                return Json(true);
-            }
-            catch (Exception e)
-            {
-                return Json(false);
-            }
-        }
-        
-        [HttpGet]
-        public ActionResult AddModel()
-        {
-            ViewBag.Marks = Ctx.Marks.ToList();
-            return View();
-        }
-        
-        [HttpPost]
-        public JsonResult AddModel(Model model)
-        {
-            try
-            {
-                Ctx.Models.Add(model);
                 Ctx.SaveChanges();
                 return Json(true);
             }
@@ -103,7 +67,7 @@ namespace CarAuction2.Controllers
             return Json(models.Select(c => new SelectListItem()
                 {
                     Text = c.Name,
-                    Value = c.MarkId.ToString()
+                    Value = c.ModelId.ToString()
                 }
             ), JsonRequestBehavior.AllowGet);
         }
