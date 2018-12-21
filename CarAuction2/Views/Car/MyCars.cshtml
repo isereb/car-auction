@@ -15,7 +15,7 @@
 </div>
 @foreach (Car car in ViewBag.MyCars)
 {
-    <div class="card">
+    <div class="card mt-2">
         <div class="card-header">
             <div class="row">
                 <div class="col-md-6">
@@ -28,14 +28,21 @@
                 </div>
                 <div class="col-md-6 text-md-right">
                     <h4>@Html.DisplayFor(m => car.DesiredPrice)</h4>
+                    <h6 class="card-subtitle mb-2 text-muted">
+                        @Html.DisplayFor(m => car.Mileage) km
+                    </h6>
                 </div>
             </div>
         </div>
         <div class="card-body">
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
+            <h6 class="card-subtitle mb-2 text-muted">
+                @Html.DisplayFor(m => car.Seller.FirstName) 
+                @Html.DisplayFor(m => car.Seller.LastName)
+            </h6>
+            <p class="card-text">@Html.DisplayFor(m => car.Description)</p>
+            <a href="#" class="card-link">Update</a>
+            <a href="#" class="card-link">Mark as sold</a>
+            <a href="#" class="card-link">View bids</a>
         </div>
     </div>
 }
